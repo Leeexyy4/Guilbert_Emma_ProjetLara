@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Comment;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $comments = Comment::find(1)->comments();
+    dump($comments);
+
+    // return view('welcome');
 });
