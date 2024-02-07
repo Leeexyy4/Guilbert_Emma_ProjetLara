@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function comments(){
-        return $this->hasOne(Comment::class);
+    public function articles(){
+        return $this->hasOne(Article::class);
     }
 }

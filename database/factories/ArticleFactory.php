@@ -17,7 +17,11 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->title(),
+            'image_url' => fake()->url(),
+            'content' => fake()->paragraph(),
+            'created_at' => fake()->date(),
+            'updated_at' => fake()->date()
         ];
     }
 }
