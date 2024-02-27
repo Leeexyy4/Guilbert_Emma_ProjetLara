@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ArticleResource;
 use App\Models\Comment;
 use App\Models\Article;
@@ -29,5 +32,13 @@ Route::get('/', function () {
     // $comments = Comment::factory()->count(10)->make();
     // dump($comments);
 
-    // return view('welcome');
+    // $article = Article::find(1)->comments();
+    // $article::toArray();
+    // dump($article);
+
+    return view('welcome');
 });
+
+Route::get('/home', [Controller::class, 'afficherHome'])->name('home');
+Route::get('/article', [ArticleController::class, 'afficherArticle'])->name('article');
+Route::get('/comment', [CommentController::class, 'afficherComment'])->name('comment');

@@ -9,6 +9,12 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'image_url',
+        'content'
+    ];
+
     public function comments(){
         return $this->hasMany(Comment::class);
     }

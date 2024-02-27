@@ -30,59 +30,78 @@
 
         <div class="container">
 
-            <h2>Présentation des requêtes de l'API</h2>
+            <h2>Présentation des requêtes sur les commentaires de l'API : </h2>
 
             <div class="card">
+                <div class="card-header">
+                  Récupérer les commentaires - Index
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Index</h5>
-                    <p class="card-text">Requête GET pour récupérer une liste d'éléments.</p>
+                    <a href="http://127.0.0.1:8000/api/comments" class="btn btn-primary">Valider</a>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-header">
+                    Récupérer un article par id - Show
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Store</h5>
-                    <p class="card-text">Requête POST pour créer un nouvel élément.</p>
+                    <form action="{{ url('/api/articles/') }}" method="get">
+                        <div class="mb-3">
+                            <label for="articleId" class="form-label">ID de l'article</label>
+                            <input type="number" class="form-control" id="articleId" name="articleId" min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </form>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-header">
+                  Créer un commentaire - Store
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Show</h5>
-                    <p class="card-text">Requête GET pour récupérer un élément spécifique par son identifiant (ID).</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-header">
+                  Mettre à jour un commentaire - Update
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Update</h5>
-                    <p class="card-text">Requête PATCH pour mettre à jour un élément spécifique par son identifiant (ID).</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-header">
+                  Supprimer un commentaire - Destroy
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Destroy</h5>
-                    <p class="card-text">Requête DELETE pour supprimer un élément spécifique par son identifiant (ID).</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-header">
+                  Rechercher dans les commentaires - Search
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Search</h5>
-                    <p class="card-text">Fonctionnalité de recherche personnalisée, pouvant être implémentée avec un point d'accès spécifique.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-header">
+                  Créer des commentaires aléatoires - Factory
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Factory</h5>
-                    <p class="card-text">Requête pour créer une liste de données aléatoires.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
 
         </div>
-
 
         <footer>
             <p>Réalisé par Emma Guilbert - BUT2APP</p>
@@ -91,4 +110,4 @@
         <!-- Scripts Bootstrap et autres scripts nécessaires -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-GLhlTQ8iKt6EAtkDs6KczcZRrL37SY/Ag5NDLGI+9N5V9BYT9NYQ8o6bRdi1Q" crossorigin="anonymous"></script>
     </body>
-    </html>
+</html>
