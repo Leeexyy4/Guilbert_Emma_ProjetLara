@@ -23,6 +23,7 @@ Route::post("/articles",[ArticleController::class,'store']);
 Route::patch("/articles/{id}",[ArticleController::class,'update']);
 Route::delete("/articles/{id}",[ArticleController::class,'destroy']);
 Route::get("/articles/search/{id}",[ArticleController::class,'search']);
+Route::get("/articles/{id}/comments",[ArticleController::class,'comments']);
 
 
 // Routes comments

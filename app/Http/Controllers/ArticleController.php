@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\CommentResource;
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Collection;
 use App\Http\Requests\ArticleRequest;
@@ -74,7 +75,7 @@ class ArticleController extends Controller
         $article->delete();
 
         return response()->json(['message' => 'Article deleted successfully']);
-        }
+    }
 
     /**
      * Search for articles based on a given query.
@@ -100,7 +101,10 @@ class ArticleController extends Controller
 
         $article = Article::query()->findOrFail($id);
 
-        return response()->json(['comments' => $article->comments]);
+        return response()
+            ->json([
+                'comments' => CommentResource::collection($article->comments)
+            ]);
     }
 
     public function afficherArticle()
