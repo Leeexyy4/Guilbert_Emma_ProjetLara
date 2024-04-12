@@ -42,3 +42,8 @@ Route::get('/', function () {
 Route::get('/home', [Controller::class, 'afficherHome'])->name('home');
 Route::get('/article', [ArticleController::class, 'afficherArticle'])->name('article');
 Route::get('/comment', [CommentController::class, 'afficherComment'])->name('comment');
+
+Route::get('/createarticle', [ArticleController::class, 'createarticle'])->name('createarticle');
+Route::get('/updatearticle', [ArticleController::class, 'updatearticle'])->name('updatearticle');
+Route::get('/deletearticle', [ArticleController::class, 'deletearticle'])->name('deletearticle');
+Route::get("/articles/search/", [ArticleController::class, 'searcharticle'])->name('searcharticle');

@@ -48,8 +48,8 @@
                 <div class="card-body">
                     <form action="{{ url('/api/articles/') }}" method="get">
                         <div class="mb-3">
-                            <label for="articleId" class="form-label">ID de l'article</label>
-                            <input type="number" class="form-control" id="articleId" name="articleId" min="1" required>
+                            <label for="id" class="form-label">ID de l'article</label>
+                            <input type="number" class="form-control" id="id" name="id" min="1" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>

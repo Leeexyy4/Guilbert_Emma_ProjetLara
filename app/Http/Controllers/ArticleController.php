@@ -28,7 +28,6 @@ class ArticleController extends Controller
         /** @var Article $articles */
 
         $articles = Article::query()->create($request->validated());
-
         return ArticleResource::make($articles);
 
     }
@@ -36,7 +35,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(int $id)
     {
         /** @var Article $article */
 
@@ -79,17 +78,18 @@ class ArticleController extends Controller
     /**
      * Search for articles based on a given query.
      */
-    public function search(string $search)
-    {
-        /** @var Collection<Article> $articles */
 
-        $articles = Article::query()
-            ->where('title', 'like', '%' . $search . '%')
-            ->orWhere('content', 'like', '%' . $search . '%')
-            ->get();
+     public function search(string $search)
+     {
+         /** @var Collection<Article> $articles */
 
-        return ArticleResource::collection($articles);
-    }
+         $articles = Article::query()
+             ->where('title', 'like', '%' . $search . '%')
+             ->orWhere('content', 'like', '%' . $search . '%')
+             ->get();
+
+         return ArticleResource::collection($articles);
+     }
 
     /**
      * Get comments for a specific article.
@@ -106,6 +106,26 @@ class ArticleController extends Controller
     public function afficherArticle()
     {
         return view('article');
+    }
+
+    public function createarticle()
+    {
+        return view('createarticle');
+    }
+
+    public function updatearticle()
+    {
+        return view('updatearticle');
+    }
+
+    public function deletearticle()
+    {
+        return view('deletearticle');
+    }
+
+    public function searcharticle()
+    {
+        return view('searcharticle');
     }
 
 }

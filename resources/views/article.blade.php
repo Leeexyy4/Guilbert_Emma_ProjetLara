@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="articleport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Articles et articles - Projet Laravel</title>
 
@@ -36,7 +36,7 @@
                   Récupérer les articles - Index
                 </div>
                 <div class="card-body">
-                    <a href="http://127.0.0.1:8000/api/articles" class="btn btn-primary">Valider</a>
+                    <a href="http://127.0.0.1:8000/api/articles" class="btn btn-primary">Afficher</a>
                 </div>
             </div>
 
@@ -45,38 +45,19 @@
                     Récupérer un article par id - Show
                 </div>
                 <div class="card-body">
-                    <input type="number" class="form-control" id="nombre" name="nombre" min="1">
-                    <a href="http://127.0.0.1:8000/api/articles/" class="btn btn-primary" onclick="validateArticle()">Valider</a>
+                    <input type="number" class="form-control" id="idshow" name="idshow" min="1">
+                    <a href="#" class="btn btn-primary" id="validerBtn">Afficher l'unique</a>
                 </div>
             </div>
-
-            <script>
-                function validateArticle() {
-                    var articleId = document.getElementById('nombre').value;
-                    window.location.href = "http://127.0.0.1:8000/api/articles/" + articleId;
-                }
-            </script>
-
-
-            <script>
-                document.getElementById('validerBtn').addEventListener('click', function () {
-                    var articleId = document.getElementById('nombre').value;
-                    var baseUrl = "http://127.0.0.1:8000/api/articles/";
-                    var url = baseUrl + articleId;
-
-                    // Redirect to the constructed URL
-                    window.location.href = url;
-                });
-            </script>
 
 
             <div class="card">
                 <div class="card-header">
                   Créer un article - Store
                 </div>
-                <div class="card-body">
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+                    <div class="card-body">
+                        <a href="{{ route('createarticle') }}" class="btn btn-primary">Créer un article</a>
+                    </div>
             </div>
 
             <div class="card">
@@ -84,28 +65,34 @@
                   Mettre à jour un article - Update
                 </div>
                 <div class="card-body">
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <input type="number" class="form-control" id="idpdate" name="idpdate" min="1">
+                    <a href="#" class="btn btn-primary" id="majBtn">Afficher l'unique</a>
                 </div>
             </div>
+
 
             <div class="card">
                 <div class="card-header">
                   Supprimer un article - Destroy
                 </div>
                 <div class="card-body">
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <input type="number" class="form-control" id="iddestroy" name="iddestroy" min="1">
+                    <a href="#" class="btn btn-primary" id="supprimerBtn">Supprimer l'article</a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-header">
-                  Rechercher dans les articles - Search
+                    Rechercher dans les articles - Search
                 </div>
                 <div class="card-body">
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <form action="{{ route('searcharticle') }}" method="GET">
+                        @csrf
+                            <input type="text" class="form-control" id="text" name="text" min="1">
+                            <a href="#" class="btn btn-primary" id="rechercherBtn">Afficher l'unique</a>
+                        </div>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-header">
                   Créer des articles aléatoires - Factory
@@ -120,7 +107,49 @@
             <p>Réalisé par Emma Guilbert - BUT2APP</p>
         </footer>
 
-        <!-- Scripts Bootstrap et autres scripts nécessaires -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-GLhlTQ8iKt6EAtkDs6KczcZRrL37SY/Ag5NDLGI+9N5V9BYT9NYQ8o6bRdi1Q" crossorigin="anonymous"></script>
     </body>
 </html>
+
+
+<script>
+    document.getElementById('validerBtn').addEventListener('click', function () {
+                    var id = document.getElementById('idshow').value;
+                    var baseUrl = "http://127.0.0.1:8000/api/articles/";
+                    var url = baseUrl + id;
+
+                    // Redirection vers l'url
+                    window.location.href = url;
+                });
+
+    document.getElementById('majBtn').addEventListener('click', function () {
+                            var id = document.getElementById('idupdate').value;
+                            var baseUrl = "http://127.0.0.1:8000/api/articles/";
+                            var url = baseUrl + id;
+
+                            // Redirection vers l'url
+                            window.location.href = url;
+                        });
+
+
+    document.getElementById('supprimerBtn').addEventListener('click', function () {
+                    var id = document.getElementById('iddestroy').value;
+                    var baseUrl = "http://127.0.0.1:8000/api/articles/";
+                    var url = baseUrl + id;
+
+                    // Redirection vers l'url
+                    window.location.href = url;
+                });
+
+
+    document.getElementById('rechercherBtn').addEventListener('click', function () {
+        var id = document.getElementById('text').value;
+        var baseUrl = "http://127.0.0.1:8000/api/articles/search/";
+        var url = baseUrl + id;
+
+        // Redirection vers l'url
+        window.location.href = url;
+    });
+
+
+</script>
